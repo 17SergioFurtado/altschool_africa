@@ -1,0 +1,88 @@
+
+body {
+  font-family: Arial, sans-serif; /* set default font for the page */
+  margin: 0;                    /*remove default body margin */
+  padding: 0;                   /* remove default body padding*/
+  background: #fff5f5;           /* set background color*/
+  color: #2c2c2c;                 /* Default text color */
+}
+
+.container {
+  display: grid;                   /* use grid layout*/
+  grid-template-rows: auto 1fr;    /*two rows: header auto height, content fills other */
+  gap: 20px;                    /*set pace between row*/
+  max-width: 900px;          /* max width*/
+  margin: 20px auto;              /*center horizontally with top/bottom margin */
+  padding: 20px;             /* inner padding space */
+}
+
+
+.top-section {
+  display: grid;                          /*use grid layout  */
+  grid-template-columns: 200px 1fr;     /* two columns fixed profile and flexible info */
+  gap: 20px;                  /*space between columns */
+  background: #fff;             /*set white background color*/
+  padding: 20px;                              
+  border-radius: 12px;                        /*rounded corners*/
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);   /* create shadow*/
+  align-items: center;                        /*center items vertically*/
+}
+
+.profile-photo {
+  width: 160px;                    /*set fixed width*/
+  height: 160px;                   /*set fixed height*/
+  border-radius: 50%;              /*circular shape for photo*/
+  display: grid;                     
+  place-items: center;            /*center content inside*/
+  font-weight: bold;                           
+  border: 3px solid #f3b1af;      /*set border pink*/
+  overflow: hidden;              /*hide overflowing image parts*/
+}
+
+.profile-photo img {
+  width: 100%;                 /*fill container width*/
+  height: 100%;              /*fill container height*/
+}
+
+.about h2 {
+  margin-top: 0;            /*remove top margi*/
+  color: #db4a45;         /*set heading color*/
+}
+
+.bottom-section {
+  display: grid;                               /*grid layout*/
+  grid-template-columns: 1fr 1fr;             /*two equal width columns*/
+  gap: 20px;                                  
+}
+
+.card {
+  background: #ffffff;                          
+  padding: 20px;                                
+  border-radius: 12px;                          
+  box-shadow: 0 4px 10px rgba(220, 74, 69, 0.15); /*create shadow*/
+  border: 3px solid #f3b1af;             
+}
+
+/* Card heading */
+.card h3 {
+  margin-top: 0;                               
+  color: #db4a45;                             
+}
+
+/*for responsive styling in small screens*/
+@media (max-width: 700px) { 
+  .top-section {
+    display: grid;                             
+    place-items: center;     /*center content*/
+    grid-template-columns: 1fr;    /*display items vertically in single column*/
+    text-align: center;          /*Center text*/
+  }
+
+  .profile-pic {                               
+    margin: 0 auto;    /*center profile picture*/
+  }
+
+  .bottom-section {
+    grid-template-columns: 1fr;        
+  }
+}
