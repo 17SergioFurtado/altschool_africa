@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" /> <!--character encoding-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--for responsive design-->
+        <title>Stopwatch Clock</title> <!--page title in browser tab-->
+        <link rel="stylesheet" href="style.css"> <!--link to external CSS style file-->
+    </head>
+    <body>
+        <!--main content area of the page-->
+        <main>
+            <!--section containing the stopwatch app-->
+            <section>
+                <!--theme toggle switch-->
+                <label class="theme-toogle">
+                    <input type="checkbox" class="theme-btn" id="themeBtn" /> <!--checkbox that control theme-->
+                    <span class="theme-track"> <!--background of toggle-->
+                        <span class="theme-thumb"></span> <!--movable circle of the toggle-->
+                    </span>
+                </label>
+                <!--heading-->
+                <h1>Stopwatch App ⏱</h1>
+                <!--stopwatch container-->
+                <div class="stopwatch">
+                    <!--timer display-->
+                    <div class="display" id="display">00:00:00.000</div>
+                    <!--buttons to control stopwatch-->
+                    <div class="controls">
+                        <button id="startBtn">▶ Start</button> <!--start button-->
+                        <button id="pauseBtn">⏸Pause</button> <!--pause button-->
+                        <button id="lapBtn"> ⏱ Lap</button> <!--lap button-->
+                        <button id="resetBtn">↺ Reset </button> <!--reset timer button-->
+                    </div>
+                    <!--list of lap times recorded-->
+                    <ol class="laps" id="laps"></ol>
+                </div>
+            </section>
+        </main>
+        <!--link to external JavaScript file for interactivity-->
+        <script src="script.js"></script>
+    </body>
+
+</html>

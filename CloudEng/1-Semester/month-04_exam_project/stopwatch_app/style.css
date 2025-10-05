@@ -1,0 +1,176 @@
+/* setting root variables for the page colors in light mode*/
+:root {
+    --primary-color: #e33838;       /* main accent color*/
+    --secondary-color: #333;        /* dark gray for text and secondary elements*/
+    --stopwatch-bg-color: #eb5f5f;  /* ackground color for the stopwatch*/
+}
+
+/*general body styling*/
+body {
+    display: grid;                          /*use grid layout, turning element into a grid container*/
+    justify-content: center;                /*horizontal centering*/
+    align-items: center;                    /*vertical centering*/
+    height: 100vh;                          /*set full viewport height (100vh = 100% of the viewport height)*/
+    margin: 0;                              /*remove default margin*/
+    font-family: "Segoe UI";                /*set font style*/
+    transition: background 0.6s ease;       /*smoothly change the background color in 0.6 seconds*/
+    background-color: var(--primary-color); /*background uses primary color defined on :root*/
+}
+
+/*theme toggle switch*/
+.theme-toogle {
+    display: inline-block;  /*flows inline but allows set width/height/padding*/
+    cursor: pointer;        /*shows pointer cursor on hover*/
+    position: fixed;        /*set the switch at top-right*/
+    top: 20px;     
+    right: 20px; 
+}
+
+/*hidden checkbox input for toggle swtch*/
+.theme-btn {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+/*toggle switch track (background)*/
+.theme-track {
+    width: 40px;
+    height: 22px;
+    background: #ddd;                                /*light gray*/
+    border-radius: 999px;                              /*rounded edges*/
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.06);  /*shows the shadow inside the element*/
+}
+
+/*toggle switch thumb (circle)*/
+.theme-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-radius: 50%;                   /*make a circle*/
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.theme-btn:checked + .theme-track .theme-thumb {
+    transform: translateX(18px);         /*thumb slides to the right side*/
+}
+
+/*headings*/
+h1 {
+    color: var(--secondary-color);   
+}
+
+/*stopwatch container*/
+.stopwatch {
+    text-align: center;
+    font-weight: bold;
+    background: var(--stopwatch-bg-color);
+    color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto auto 1fr;    /*layout rows: title, controls, laps*/
+    gap: 15px;                            /*space between items*/
+}
+
+/*stopwatch display*/
+.display {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    font-family: "Courier New";        
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+}
+
+/*control buttons grid*/
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /*two buttons per row*/
+    gap: 10px;
+}
+
+/*general button styles*/
+button {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/*hover effect for buttons*/
+button:hover {
+    transform: scale(1.03);       /*zoom effect*/
+    opacity: 0.8;                 /*dim effect*/
+    background: #4caf50;        /*turns green on hover*/
+}
+
+
+/*laps list styles*/
+.laps {
+    text-align: left;
+    max-height: 150px;            /*scroll when too many laps*/
+    overflow-y: auto;
+    cursor: pointer;
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+/*lap item*/
+.laps li {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    margin: 3px 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: "Courier New";
+    font-weight: bold;
+}
+
+/*responsive design for small screens*/
+@media (max-width: 700px) { 
+  .controls {
+    grid-template-columns: 1fr;    /*stack buttons vertically*/
+  }
+
+  .stopwatch {
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 280px;        /*smaller width*/
+    width: 100%;
+  }
+
+  .controls button {
+    padding: 8px;   
+    font-size: 14px;     
+    width: 280px;          /*full width for buttons*/
+  }
+
+  .laps {
+    max-height: 100px;
+    width: 280px;
+  }
+
+  .display {
+    font-size: 1.8rem;        /*smaller font for time*/
+    letter-spacing: 1px;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+  }
+}
